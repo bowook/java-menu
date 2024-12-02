@@ -27,4 +27,8 @@ public class InputView {
     private String readConsole() {
         return scanner.nextLine();
     }
+
+    public void closeConsole() {
+        scanner.close();
+    }
 }

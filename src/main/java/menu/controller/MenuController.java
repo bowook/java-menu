@@ -25,6 +25,7 @@ public class MenuController {
         readCantEat(coaches);
         List<Category> categories = recommendService.recommend(coaches);
         outputView.printResult(coaches, categories);
+        inputView.closeConsole();
     }
 
     private void readCantEat(Coaches coaches) {
