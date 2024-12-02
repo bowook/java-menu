@@ -17,7 +17,7 @@ public class Coach {
     }
 
     public boolean addEatMenu(Menu menu) {
-        if (!cantEatMenus.contains(menu)) {
+        if (!cantEatMenus.contains(menu) || !eatMenus.contains(menu)) {
             eatMenus.add(menu);
             return true;
         }
