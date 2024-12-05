@@ -19,19 +19,19 @@ public class RecommendService {
     }
 
     private void recommendMenuForEachCoach(List<Coach> coaches, List<Category> categories) {
-        for (Coach coach : coaches) {
-            recommendMenu(categories, coach);
+        for (Category category : categories) {
+            for (Coach coach : coaches) {
+                recommendMenu(category, coach);
+            }
         }
     }
 
-    private void recommendMenu(List<Category> categories, Coach coach) {
-        for (Category category : categories) {
-            List<String> tempMenus = Menu.findByCategory(category);
-            Menu menu = Menu.from(Randoms.shuffle(tempMenus).get(0));
-            while (!coach.addEatMenu(menu)) {
-                menu = Menu.from(Randoms.shuffle(tempMenus).get(0));
-            }
-        }
+    private void recommendMenu(Category category, Coach coach) {
+        List<String> tempMenus = Menu.findByCategory(category);
+        Menu menu;
+        do {
+            menu = Menu.from(Randoms.shuffle(tempMenus).get(0));
+        } while (!coach.addEatMenu(menu));
     }
 
     private List<Category> recommendCategory() {

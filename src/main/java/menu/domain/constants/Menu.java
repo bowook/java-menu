@@ -12,6 +12,7 @@ public enum Menu {
     MISO_SOUP(Category.JAPANESE_FOOD, "미소시루"),
     SUSHI(Category.JAPANESE_FOOD, "스시"),
     ONIGIRI(Category.JAPANESE_FOOD, "오니기리"),
+    KATZDOONG(Category.JAPANESE_FOOD, "가츠동"),
     HAYASHI_RICE(Category.JAPANESE_FOOD, "하이라이스"),
     RAMEN(Category.JAPANESE_FOOD, "라멘"),
     OKONOMIYAKI(Category.JAPANESE_FOOD, "오꼬노미야끼"),
@@ -42,7 +43,7 @@ public enum Menu {
     BANHMI(Category.ASIAN_FOOD, "반미"),
     SPRING_ROLLS(Category.ASIAN_FOOD, "월남쌈"),
     BUN_CHA(Category.ASIAN_FOOD, "분짜"),
-    LASAGNA(Category.WESTERN_FOOD, "리자냐"),
+    LASAGNA(Category.WESTERN_FOOD, "라자냐"),
     GRATIN(Category.WESTERN_FOOD, "그라탱"),
     GNOCCHI(Category.WESTERN_FOOD, "뇨끼"),
     QUICHE(Category.WESTERN_FOOD, "끼슈"),
@@ -74,7 +75,7 @@ public enum Menu {
 
     public static Menu from(String input) {
         return Arrays.stream(Menu.values())
-                .filter(menu -> menu.name.equals(input))
+                .filter(menu -> menu.name.equals(input.trim()))
                 .findAny()
                 .orElseThrow(() -> CustomException.from(ErrorMessage.NO_MENU));
     }

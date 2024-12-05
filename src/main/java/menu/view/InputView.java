@@ -1,5 +1,6 @@
 package menu.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.Scanner;
 import menu.domain.Coach;
 import menu.domain.Coaches;
@@ -25,10 +26,10 @@ public class InputView {
     }
 
     private String readConsole() {
-        return scanner.nextLine();
+        return Console.readLine();
     }
 
     public void closeConsole() {
-        scanner.close();
+        
     }
 }

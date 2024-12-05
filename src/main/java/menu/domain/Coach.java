@@ -17,7 +17,7 @@ public class Coach {
     }
 
     public boolean addEatMenu(Menu menu) {
-        if (!cantEatMenus.contains(menu) || !eatMenus.contains(menu)) {
+        if (!cantEatMenus.contains(menu) && !eatMenus.contains(menu)) {
             eatMenus.add(menu);
             return true;
         }
@@ -38,6 +38,10 @@ public class Coach {
 
     public void addCantEatMenu(List<Menu> menus) {
         cantEatMenus.addAll(menus);
+    }
+
+    public List<Menu> getEatMenus() {
+        return eatMenus;
     }
 
     public String getName() {
